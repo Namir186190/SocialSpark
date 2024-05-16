@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgb(8, 128, 8),rgb(55, 173, 55),rgb(0, 128, 81));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .faq-container {
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(250, 247, 247, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin: 20px;
+            text-align: left;
+            overflow: hidden;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        .faq-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #4cd655;
+            color: #fff;
+            border: 1px solid #6cee56;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-question:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .faq-question:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, transparent 0%, rgba(255, 255, 255, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+
+        .faq-question:hover:before {
+            opacity: 1;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            line-height: 1.6;
+            animation: fadeIn 0.5s ease-in-out;
+            margin-top: 10px;
+        }
+
+        .faq-container a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .faq-container a:hover {
+            color: #c0392b;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="faq-container">
+        <div class="faq-title">Frequently Asked Questions</div>
+        
+        <div class="faq-question" onclick="toggleFaq('faq1')">How can I add social share buttons to my website?</div>
+        <div class="faq-answer" id="faq1">You can add social share buttons by using social media APIs,simple HTML or CSS.</div>
+    
+        <div class="faq-question" onclick="toggleFaq('faq2')">How do I contact customer support?</div>
+        <div class="faq-answer" id="faq2">You can contact our customer support team through the <a href="Contact Us HTML.html">contact page</a> on our website.</div>
+        
+        <div class="faq-question" onclick="toggleFaq('faq3')">How can I make sure that social share buttons work across the different browsers?</div>
+        <div class="faq-answer" id="faq3">Test your implementation on various browsers to ensure compatibility.</div>
+        
+        <div class="faq-question" onclick="toggleFaq('faq4')">What are some considerations for touch-friendly social share buttons?</div>
+        <div class="faq-answer" id="faq4">Design buttons with larger touch areas, avoid small links,and test touch-enabled devices to ensure a good experience.</div>
+     
+        <div class="faq-question" onclick="toggleFaq('faq5')">Is there a limit to the number of elements in a social share list?</div>
+        <div class="faq-answer" id="faq5">There's no strict limit,but a long list may affect user experience.</div>
+    
+        <div class="faq-question" onclick="toggleFaq('faq6')">Can I use custom icons for social share buttons?</div>
+        <div class="faq-answer" id="faq6">Yes, you can use custom icons by integrating them with CSS or choosing customizable options provided.</div>
+</div>
+<script>
+    function toggleFaq(faqId) {
+        var faq = document.getElementById(faqId);
+        if (faq.style.display === 'none' || faq.style.display === '') {
+            faq.style.display = 'block';
+        } else {
+            faq.style.display = 'none';
+        }
+    }
+    
+</script>
+
+</body>
+</html>

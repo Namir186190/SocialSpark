@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Review</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 0.5s ease;
+            background: linear-gradient(rgb(8, 128, 8),rgb(55, 173, 55),rgb(0, 128, 81));
+        }
+
+        .review-container {
+            max-width: 500px; 
+            width: 90%;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background 0.5s ease;
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #000000;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            background-color: transparent;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        #satisfaction {
+            width: 100%; 
+            padding: 8px; 
+            margin-bottom: 15px; 
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        #name,
+        #email,
+        #review {
+            width: 100%; 
+        }
+
+        .satisfaction-label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .satisfaction-range {
+            width: 100%; 
+            margin-bottom: 15px; 
+        }
+
+        .satisfaction-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .share-button,
+        #submit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .share-button {
+            margin-right: 10px;
+            background-color: #16a085;
+            color: #fff;
+        }
+
+        #submit-btn {
+            background-color: #d9534f;
+            color: #fff;
+            margin-top: -15px; 
+        }
+
+        .share-button:hover,
+        #submit-btn:hover {
+            background-color: #117a60;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="review-container">
+    <h1>Service Review</h1>
+
+    <p>We value your feedback. Please share your thoughts on the service provided.</p>
+
+    <form>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="review">Your Review:</label>
+        <textarea id="review" name="review" rows="4" required></textarea>
+
+        <label class="satisfaction-label" for="satisfaction">Satisfaction Rating:</label>
+        <input type="range" id="satisfaction" name="satisfaction" min="1" max="5" step="1" value="5" class="satisfaction-range" oninput="updateSatisfactionText()">
+        <div class="satisfaction-text" id="satisfactionText">Excellent</div>
+
+        <button type="button" id="submit-btn" onclick="submitForm()">Submit</button>
+
+        <div class="share-buttons">
+            <button class="share-button" onclick="shareOnFacebook()">Share on Facebook</button>
+            <button class="share-button" onclick="shareOnTwitter()">Share on Twitter</button>
+            <button class="share-button" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function updateSatisfactionText() {
+        var satisfactionRange = document.getElementById("satisfaction");
+        var satisfactionText = document.getElementById("satisfactionText");
+
+        switch (parseInt(satisfactionRange.value)) {
+            case 1:
+                satisfactionText.textContent = "Poor";
+                break;
+            case 2:
+                satisfactionText.textContent = "Average";
+                break;
+            case 3:
+                satisfactionText.textContent = "Good";
+                break;
+            case 4:
+                satisfactionText.textContent = "Excellent";
+                break;
+            case 5:
+                satisfactionText.textContent = "Outstanding";
+                break;
+            default:
+                satisfactionText.textContent = "Excellent";
+                break;
+        }
+    }
+
+    function shareOnFacebook() {
+        var shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('file:///C:/Users/namar/OneDrive/Desktop/Everything%20HTML%20all%20at%20once/Projects/Narisha%20Homepage.html');
+        window.open(shareUrl, '_blank');
+    }
+
+    function shareOnTwitter() {
+        var shareUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent('file:///C:/Users/namar/OneDrive/Desktop/Everything%20HTML%20all%20at%20once/Projects/Narisha%20Homepage.html') + '&text=Check out this amazing service review!';
+        window.open(shareUrl, '_blank');
+    }
+
+    function shareOnWhatsApp() {
+        var shareUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent('Check out this amazing website: file:///C:/Users/namar/OneDrive/Desktop/Everything%20HTML%20all%20at%20once/Projects/Narisha%20Homepage.html');
+        window.open(shareUrl, '_blank');
+    }
+
+    function submitForm() {
+      alert("Your message has been submitted successfully!");
+  }
+</script>
+
+</body>
+</html>

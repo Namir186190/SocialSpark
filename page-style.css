@@ -1,0 +1,33 @@
+body 
+{
+ background-image:url("1.jpg") ;
+ background-repeat:no-repeat;
+ background-size:cover;
+}
+.main
+{
+    border:2px groove black;
+    background-color: rgba(0, 255, 255, 0.542);
+    width:1300px;
+    height:800px;
+    padding:80px;
+    padding-top: 0%;
+    margin:20px;
+    
+}
+h1
+{
+    font-size: 90px;
+    text-align:center;
+    font-family:cursive;
+    padding-top: 0%;
+}
+img
+{
+    width:200px;
+    height:200px;
+}
+.div2
+{
+    text-align:center;
+}
